@@ -1,0 +1,13 @@
+name: Python CI 
+on:
+  - push 
+jobs: 
+  test: 
+    runs-on: ubuntu-latest 
+    steps:
+    - uses: action/checkout@v2 
+    - uses: action/setup-python@v2
+      with:
+          python-version: '3.6'
+    - run: pip3 install -r requirements.txt
+    - run: python3 HelloWorldTest.py
